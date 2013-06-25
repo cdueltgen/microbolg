@@ -18,11 +18,13 @@ WHOOSH_BASE = os.path.join(basedir, 'search.db')
 # mail server settings
 MAIL_SERVER = 'localhost'
 MAIL_PORT = 25
+MAIL_USE_TLS = False
+MAIL_USE_SSL = False
 MAIL_USERNAME = None
 MAIL_PASSWORD = None
 
 # administrator list
-ADMINS = ['cdueltgen@gmail.com']
+ADMINS = ['cynthia@hackbrightacademy.com']
 
 # pagination
 POSTS_PER_PAGE = 3
