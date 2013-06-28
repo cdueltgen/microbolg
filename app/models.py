@@ -2,6 +2,7 @@ from app import db
 from app import app
 from hashlib import md5
 import flask.ext.whooshalchemy as whooshalchemy
+import re
 
 ROLE_USER = 0
 ROLE_ADMIN = 1
@@ -27,6 +28,9 @@ class User(db.Model):
         lazy = 'dynamic')
 
     @staticmethod
+    def make_valid_nickname(nickname):
+        return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
+
     def make_unique_nickname(nickname):
         if User.query.filter_by(nickname = nickname).first() == None:
             return nickname

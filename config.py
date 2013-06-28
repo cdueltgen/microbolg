@@ -1,3 +1,4 @@
+#_*_ coding: utf-8 _*_
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -22,6 +23,12 @@ MAIL_USE_TLS = False
 MAIL_USE_SSL = False
 MAIL_USERNAME = None
 MAIL_PASSWORD = None
+
+# available languages
+LANGUAGES = {
+    'en': 'English',
+    'es': 'Español'
+}
 
 # administrator list
 ADMINS = ['cynthia@hackbrightacademy.com']
