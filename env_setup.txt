@@ -2,9 +2,23 @@ Setting up your virtual environment
 
 This is meant to replace the virtual env setup in the flask megatutorial.
 
-We have already installed virtualenv for you on the machines in the lab. If you want to install it on your personal machine, and you have root access, the command is:
+Assumptions:
+-You are already using Python 2.7
+-You have installed pip and virtualenv on your system
 
-% sudo pip install virtualenv
+To check your version of python type:
+
+% python --version
+
+To check whether you have pip and virtualenv installed, type:
+
+% which pip
+% which virtualenv
+
+These should return something that looks like:
+/usr/local/bin/pip
+
+If it returns nothing you do not have virtualenv and pip installed. If you need help installing these, please find one of us to help you with that.
 
 Once you have virtualenv ready to go, go to your source directory for your project and create your virtual environment with the command:
 
@@ -24,42 +38,18 @@ Note that you need to feed it the path to your virtual environment to activate i
 
 So let's go ahead and activate our environment now. I'll wait. Good.
 
-Then, to install the things you need for the flask megatutorial, we will build a requirements file that will ensure we have the tools we need for this tutorial. We will only have to do this part once.
+Is your virtual environment active? Just checking. Now, grab the requrements.txt file from my github (https://github.com/cdueltgen/microbolg/blob/master/requirements.txt) and put it in your project directory.
 
-Is your virtual environment active? Good. For the flask mega tutorial, you will need to type the following commands (see notes at end for commands marked with a (*):
-
-pip install flask==0.9
-pip install flask-login
-pip install flask-openid
-pip install flask-mail
-pip install flask-sqlalchemy
-pip install sqlalchemy-migrate
-pip install flask-whooshalchemy(*)
-pip install flask-wtf
-pip install flask-babel(*)
-pip install flup
-
-Then, to fix a problem with sqlalchemy-migrate, we need to install an older verion of sqlalchemy.
-
-pip uninstall sqlalchemy
-pip install sqlalchemy==0.7.9
-
-(*)These aren't currently working. They're not needed until at least chapter 10, so you should be able to get pretty far without them. I'll try to figure this out and get back to you.
-
-(**) installing flask-sqlalchemy installs flask .10 without warning. This is bad.
-
-Now, to prevent us from having to do this again, at your command prompt, type:
-
-% pip freeze > requirements.txt
-
-(This might give you a warning, but I think it's okay for now. It appears to be a problem with the last thing we installed, flup. If we encounter a problem with it later, we can just use pip install to install it.)
-
-Then, if/when you move to a new machine, you can rebuild this env from the requirements file without having to type all those pip commands.
-
-To recreate this env from the requirements file, the command is:
-IMPORTANT: YOU STILL HAVE TO CREATE AND ACTIVATE YOUR VIRTUAL ENVIRONMENT BEFORE YOU RUN THIS COMMAND!
+Then, to install the requirements, the command is:
 
 % pip install -r requirements.txt
+
+This will take a while and spew a lot of text to your window. The final result you are looking for is:
+
+Successfully installed Babel Flask Flask-Babel Flask-Login Flask-OpenID Flask-SQLAlchemy Flask-WTF Flask-WhooshAlchemy Jinja2 SQLAlchemy Tempita WTForms Werkzeug Whoosh blinker decorator flup python-openid pytz speaklater sqlalchemy-migrate
+Cleaning up...
+
+If the last thing before you get your prompt back doesn't say this, something went wrong. Find one of us to help you out.
 
  Now, let's talk a moment about your project repository and the .gitignore file. By default, your shell will not show you files or directories that start with a dot(.). To see these files, you need to feed the -a flag to ls. If you have already run git init in your project directory, ls -a will show you a .git directory.
 
